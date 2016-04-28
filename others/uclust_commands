@@ -1,0 +1,32 @@
+/home/people/thomas/projects/Metagenomics/tools/MOCAT/bin/usearch -cluster_fast HKMN.cdhit.faa -id 0.5 -centroids HKMN_uclust_05.fasta
+/home/people/thomas/projects/Metagenomics/tools/MOCAT/bin/usearch -cluster_fast HKMN.cdhit.faa -id 0.6 -centroids HKMN_uclust_06.fasta
+/home/people/thomas/projects/Metagenomics/tools/MOCAT/bin/usearch -cluster_fast HKMN.cdhit.faa -id 0.7 -centroids HKMN_uclust_07.fasta
+/home/people/thomas/projects/Metagenomics/tools/MOCAT/bin/usearch -cluster_fast HKMN.cdhit.faa -id 0.8 -centroids HKMN_uclust_08.fasta
+/home/people/thomas/projects/Metagenomics/tools/MOCAT/bin/usearch -cluster_fast HKMN.cdhit.faa -id 0.9 -centroids HKMN_uclust_09.fasta
+
+
+/home/people/thomas/projects/Metagenomics/tools/MOCAT/bin/usearch -cluster_fast HKMN.cdhit.faa -id 0.5 -consout HKMN_uclust_05.cons.fasta -uc HKMN_uclust_05.uc -sizeout &
+/home/people/thomas/projects/Metagenomics/tools/MOCAT/bin/usearch -cluster_fast HKMN.cdhit.faa -id 0.6 -consout HKMN_uclust_06.cons.fasta -uc HKMN_uclust_06.uc -sizeout &
+/home/people/thomas/projects/Metagenomics/tools/MOCAT/bin/usearch -cluster_fast HKMN.cdhit.faa -id 0.7 -consout HKMN_uclust_07.cons.fasta -uc HKMN_uclust_07.uc -sizeout &
+/home/people/thomas/projects/Metagenomics/tools/MOCAT/bin/usearch -cluster_fast HKMN.cdhit.faa -id 0.8 -consout HKMN_uclust_08.cons.fasta -uc HKMN_uclust_08.uc -sizeout &
+/home/people/thomas/projects/Metagenomics/tools/MOCAT/bin/usearch -cluster_fast HKMN.cdhit.faa -id 0.9 -consout HKMN_uclust_09.cons.fasta -uc HKMN_uclust_09.uc -sizeout &
+
+
+
+
+
+foreach i (*.uc)
+foreach? grep -r "^C" $i > $i.C
+foreach? grep -r "^H" $i > $i.H
+foreach? grep -r "^S" $i > $i.S
+foreach? sort -n -r -k3 $i.C > $i.C.sortedbysize
+foreach? cut -f3 $i.C.sortedbysize | grep -c -v -w "1" > $i.min2
+foreach? end
+
+
+
+HKMN_uclust_05.uc.min2:17016
+HKMN_uclust_06.uc.min2:15295
+HKMN_uclust_07.uc.min2:12582
+HKMN_uclust_08.uc.min2:9113
+HKMN_uclust_09.uc.min2:4841
