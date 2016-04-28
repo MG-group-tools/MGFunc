@@ -1,4 +1,4 @@
-# MGFunc - Metagenomics Functional and taxonomical annotation Pipeline==
+# MGFunc - Metagenomics Functional and Taxonomical annotation Pipeline
 
 Authors:
 Asli Ismihan Ozen (asli@cbs.dtu.dk)
