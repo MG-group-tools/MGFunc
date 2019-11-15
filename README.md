@@ -58,4 +58,4 @@ Muscle or mafft alignment, fast or slower options can be chosen.
 ### 9. TREES
 Making trees using PAUP. 
 
-
+#Testing a git push
